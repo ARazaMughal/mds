@@ -165,9 +165,13 @@
 							<li><a href="https://www.facebook.com/MirajDinWorkShopOkara/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://wa.me/message/FOIHGPOKUSJYM1" class="icon brands alt fa-whatsapp"><span class="label">Whatsapp</span></a></li>
 						</ul>
+						<ul>
+							<li id="time"></li>
+						</ul>
 						<ul class="copyright">
 							<li>&copy; MDS Engineering Works</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 						</ul>
+						
 					</div>
 				</footer>
 
@@ -181,6 +185,21 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+ 
+			<script>
+				var d=new Date();
+				var timeElement=document.getElementById("time");
+			
+				if (d.getDay()==5) {
+					timeElement.innerHTML="Closed";
+				} else {
+					if ((d.getHours()>=09)&&(d.getHours()<=18)) {
+						timeElement.innerHTML="Open Now";
+					} else {
+						timeElement.innerHTML="Closed";
+					}
+				}
 
+			</script>
 	</body>
 </html>
