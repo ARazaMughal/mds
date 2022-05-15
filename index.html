@@ -193,8 +193,14 @@
 				if (d.getDay()==5) {
 					timeElement.innerHTML="Closed";
 				} else {
-					if ((d.getHours()>=09)&&(d.getHours()<=18)) {
-						timeElement.innerHTML="Open Now";
+					if ((d.getHours()>=08)&&(d.getHours()<=18)) {
+						if (d.getHours()==13) {
+							timeElement.innerHTML="Lunch Break";
+						}
+						else{
+							timeElement.innerHTML="Open Now";
+						}
+					
 					} else {
 						timeElement.innerHTML="Closed";
 					}
