@@ -23,6 +23,7 @@
 					<header id="header">
 						<a href="index.html" class="logo"><img src="images/pic.png" style="height:100%"></a>
 						<nav>
+
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
@@ -45,26 +46,56 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Oil Expeller</h1>
+										<h1><span id="name"></span></h1>
 									</header>
-									<span class="image main"><img src="images/expeller.jpeg" style="max-width: 550px; height: auto;" /></span>
-									<p>These Oil Expellers are specially designed to obtain the highest possible level of oil from the seeds. Its Chamber is Fitted with the worms which is made of most durable material. Whole body is made of pure Iron included the Bearings, Gears and Axcel Shaft.</p>
-								    <p>It can Extract Oil from</p>
+									<span class="image main"><img id="pic" style="max-width: 550px; height: auto;" /></span>
+									<p><span id="disc"></span></p>
+								    <p><span id="extract"></span></p>
 									<ul>
-										<li>Mustard </li>
-										<li>Sunflower</li>
-										<li>Coconut</li>
-										<li>Sesame</li>
+										<li><span id="mustard"></span> </li>
+										<li><span id="sun"></span> </li>
+										<li><span id="coconut"></span> </li>
+										<li><span id="seasame"></span> </li>
 									</ul>
-									<h3>Specifications</h3>
-									<P><b>Production Capacity: </b>80 kg/hour - 100 kg/hour<br><b>Weight: </b> 480kg<br><b>Color: </b>Metallic Green</P>
-                                    <h3>Requirements</h3>
-									<p><b>Electricity Connection: </b>Three Phase Connection is must.<br><B>Power: </B>15 HP is best for this machine. However can also work on 12 HP.</p>
-								    <a href="https://youtu.be/Fa7tHCLzH_8" class="button">Watch Vedio</a>
+									<div class="row">
+										<div class="col-12">
+											<h3>Specifications</h3>
+									<table >
+										<tr>
+											<th>Production Capacity : </th>
+											<td><span id="prodcap"></span></td>
+										</tr>
+										<tr>
+											<th>Weight: </th>
+											<td><span id="weight"></span></td>
+										</tr>
+										<tr>        
+											<th>Color: </th>
+											<td><span id="color"></span></td>     
+										</tr>
+									
+		                                </table>
+									</div>
 								</div>
+								<div class="row">
+									<div class="col-12">
+										<h3>Requirements</h3>
+										<table>
+											<tr>									
+											 <th>Electricty Connection : </th>
+											 <td><span id="connection"></span></td>
+										    </tr>
+										    <tr>
+										     <th>Power: </th>
+											 <td><span id="power"></span></td>
+										    </tr>
+									     </table>
+									</div>
+								</div>
+								<a id="video" class="button">Watch Vedio</a><br><br>
 							</section>
 
-					</div>
+					
 
 				<!-- Contact -->
 					<section id="contact">
@@ -144,5 +175,33 @@
 	})();
 	</script>
 	<!--End of Tawk.to Script-->
+	<script>
+		
+		$.getJSON("./products.json",function(data){
+			for (let index = 0; index < data.length; index++) {
+				if (data[index].common=='expeller') {
+					$('#name').text(data[index].name);
+				    $('#pic').attr("src", data[index].imageout);
+					$('#disc').text(data[index].disc);
+					$('#extract').text(data[index].ext);
+					$('#mustard').text(data[index].mus);
+					$('#sun').text(data[index].sun);
+					$('#coconut').text(data[index].coc);
+					$('#seasame').text(data[index].sea);
+					$('#prodcap').text(data[index].prodcap);
+					$('#color').text(data[index].color);
+					$('#weight').text(data[index].weight);
+					$('#video').attr("href",data[index].video);
+					$('#connection').text(data[index].con);
+					$('#power').text(data[index].power);
+				}
+				
+			}
+
+		}
+
+		);
+		
+	</script>
 	</body>
 </html>

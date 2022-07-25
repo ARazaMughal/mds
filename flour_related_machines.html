@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" onload="load()">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -23,6 +23,7 @@
 					<header id="header" class="alt style2">
 						<a href="index.html" class="logo"><img src="images/pic.png" style="height:100%"></a>
 						<nav>
+
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
@@ -62,58 +63,6 @@
 							
 
 						<!-- Two -->
-							<section id="two" class="spotlights">
-								<section>
-									<a href="wheat_grinder_50.html" class="image">
-										<img src="images/Chakki-New.jpeg" alt="" data-position="center center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Wheat Grinder/Atta Chakki (50 Number)</h3>
-											</header>
-											<p>Wheat Grinder Machine 50 Number is the standard size Grinding machines. These are used all over Pakistan .In past, Stones were used to grind the wheat. Now, In the Updated version of these machines we are using Blades instead of stones as they are more Efficient, Productive and easily Replaceable. </p>
-											<ul class="actions">
-												<li><a href="wheat_grinder_50.html" class="button">More Details</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="wheat_grinder_23-45.html" class="image">
-										<img src="images/chakki23.jpeg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Wheat Grinder/Atta Chakki (23/45)</h3>
-											</header>
-											<p>Atta Chakki number 23/45 is a Smaller version of full size Machine. Mostly it is used to grind Red Peppers. This size is best for work on small scale. </p>
-											<ul class="actions">
-												<li><a href="wheat_grinder_23-45.html" class="button">More Details</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="wheat_grader.html" class="image">
-										<img src="images/Channa 1.jpeg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Wheat Grader(Chan'na)</h3>
-											</header>
-											<p>For the production of high Quality flour, it is necessary to grind clean and pure wheat. Wheat Grader filters the impurities and non-wheat materials from wheat. </p>
-											<ul class="actions">
-												<li><a href="wheat_grader.html" class="button">More Details</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</section>
-
-						<!-- Three -->
 							
 
 					</div>
@@ -194,5 +143,53 @@
 	})();
 	</script>
 	<!--End of Tawk.to Script-->
+	<script>
+		function product(data) {
+			$('#main').html('');
+			let name='';
+			for (let index = 0; index < data.length; index++) {
+			name=name+`
+			
+			<section id="two" class="spotlights" style="border border-white">
+				<section>
+					
+					<a id="pageup" href="`+data[index].page+`" class="image">
+						<img id="pic" src="`+data[index].imageout+`"style="max-width: 95%; height: 95%;" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<header class="major" >
+								<h3 id="name">`+data[index].name+`</h3>
+							</header>
+								<p id="disc">`+data[index].disc+`</p>
+							<ul class="actions">
+								<li><a id="openpage" href="`+data[index].page+`" class="button">More Details</a></li>
+							</ul>
+						</div>
+					</div>
+				
+			</section>
+		</section> 
+	`
+
+		}
+		$('#main').html(name);
+	}
+	function load(){
+		flour=[];
+		$.getJSON("./products.json",function(data){
+			for (let index = 0; index < data.length; index++) {
+				if (data[index].common=='flour') {
+					flour.push(data[index]);
+					product(flour);
+			}
+
+			}
+		}
+
+		);
+	}
+	
+	</script>
 	</body>
 </html>

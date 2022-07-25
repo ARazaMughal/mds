@@ -22,8 +22,7 @@
 				<!-- Header -->
 					<header id="header">
 						<a href="index.html" class="logo"><img src="images/pic.png" style="height:100%"></a>
-						<nav>
-							<a href="#menu">Menu</a>
+						<nav><a href="#menu">Menu</a>
 						</nav>
 					</header>
 
@@ -45,16 +44,40 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Wheat Grinder/Atta Chakki (23/45)</h1>
+										<h1><span id="name"></span></h1>
 									</header>
-									<span class="image main"><img src="images/chakki23.jpeg" style="max-width: 550px; height: auto;" /></span>
-									<p>Atta Chakki number 23/45 is a Smaller version of full size Machine. Mostly it is used to grind Red Peppers. This size is best for work on small scale. </p>
-                                    <h3>Discription</h3>
-                                    <p><b>Production Capacity: </b>80 Kg/h - 100 Kg/h (on 2 HP motor)<br><b>Power Required: </b>2 HP - 3 HP<br><b>Guarantee: </b>No Vibration, Smooth Performance, No Heating Problem.<br><b>Color: </b>Green,Silver (can also paint on order)</p>
+									<span class="image main"><img id="pic" style="max-width: 550px; height:auto;" /></span>
+									<p><span id="disc"></span></p>
+                                   
+									<div class="row">
+										<div class="col-12">
+											<h3>Discription</h3>
+									<table >
+										<tr>
+											<th>Production Capacity : </th>
+											<td><span id="prodcap"></span></td>
+										</tr>
+										<tr>
+											<th>Power Required: </th>
+											<td><span id="power"></span></td>
+										</tr>
+										<tr>        
+											<th>Color: </th>
+											<td><span id="color"></span></td>     
+										</tr>
+										<tr>        
+											<th>Guarantee: </th>
+											<td><span id="Guarantee"></span></td>     
+										</tr>
+									
+		                                </table>
+
                                 </div>
+							</div>
+
 							</section>
 
-					</div>
+				
 
 				<!-- Contact -->
 					<section id="contact">
@@ -134,6 +157,25 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+		
+				$.getJSON("./products.json",function(data){
+					for (let index = 0; index < data.length; index++) {
+						if (data[index].commonname=='chakki23') {
+							$('#name').text(data[index].name);
+							$('#pic').attr("src", data[index].imagein);
+							$('#disc').text(data[index].disc);
+							$('#prodcap').text(data[index].prodcap);
+							$('#color').text(data[index].color);
+							$('#power').text(data[index].reqpower);
+							$('#speed').text(data[index].speed);
+							$('#Guarantee').text(data[index].Guarantee);
+						}
+					}
+				}
+		
+				);
+				
+			</script>
 	</body>
 </html>

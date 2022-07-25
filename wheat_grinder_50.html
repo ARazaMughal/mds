@@ -13,7 +13,13 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+	<style href="modal.scss">
+
+
+							
+
+	</style>
+    </head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -21,10 +27,12 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><img src="images/pic.png" style="height:100%"></a>
+						<a href="index.html" class="logo"><img src="images/pic.png" style="height:95%"></a>
+				
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
+						
 					</header>
 
 				<!-- Menu -->
@@ -37,6 +45,7 @@
 						</ul>
 					
 					</nav>
+					
 
 				<!-- Main -->
 					<div id="main" class="alt">
@@ -45,19 +54,59 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Wheat Grinder/Atta Chakki (50 number)</h1>
+										<h1><span id="name"></span></h1>
 									</header>
-									<span class="image main"><img src="images/chakki50.jpeg" style="max-width: 550px; height: auto;"  /></span>
-									<p>Wheat Grinder Machine 50 Number is the standard size Grinding machines. These are used all over Pakistan .In past, Stones were used to grind the wheat. Now, In the Updated version of these machines we are using Blades instead of stones as they are more Efficient, Productive and easily Replaceable.</p>
-									<h3>Specifications</h3>
-                                    <p><b>Production Capacity: </b>320 Kg/H - 400 Kg/H (15 Hp)<br><b>Weight: </b>170kg<br><b>Speed: </b>4200 RPM<br><b>Guarantee: </b>No Vibration, Smooth Performance, No Heating Problem.<br><b>Color: </b>Green,Silver (can also be painted on order)</p>
-									<h3>Requirements</h3>
-                                    <p><b>Electricity Connection: </b>Three Phase Connection is must.<br><b>Power: </b>15 HP is best for this machine ,can also work on 10 HP.</p>
+									<span class="image main"><img id="pic" style="max-width: 550px; height: auto;"  /></span>
+                                    <p id="disc"></p>
+									<div class="row">
+										<div class="col-12">
+											<h3>Specifications</h3>
+									<table >
+										<tr>
+											<th>Production Capacity : </th>
+											<td><span id="prodcap"></span></td>
+										</tr>
+										<tr>
+											<th>Weight: </th>
+											<td><span id="weight"></span></td>
+										</tr>
+										<tr>
+											<th>Speed: </th>
+											<td><span id="speed"></span></td>
+										</tr>
+										<tr>        
+											<th>Color: </th>
+											<td><span id="color"></span></td>     
+										</tr>
+										<tr>        
+											<th>Guarantee: </th>
+											<td><span id="Guarantee"></span></td>     
+										</tr>
+									
+		                                </table>
+									</div>
 								</div>
+								<div class="row">
+									<div class="col-12">
+										<h3>Requirements</h3>
+										<table>
+											<tr>									
+											 <th>Electricty Connection : </th>
+											 <td><span id="connection"></span></td>
+										    </tr>
+										    <tr>
+										     <th>Power: </th>
+											 <td><span id="power"></span></td>
+										    </tr>
+									     </table>
+									</div>
+
+								</div>
+								
+								
 							</section>
 
 					</div>
-
 				<!-- Contact -->
 					<section id="contact">
 						<div class="inner">
@@ -136,6 +185,41 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+		
+				$.getJSON("./products.json",function(data){
+					for (let index = 0; index < data.length; index++) {
+						if (data[index].commonname=='chakki50') {
+							$('#name').text(data[index].name);
+							$('#pic').attr("src", data[index].imagein);
+							$('#disc').text(data[index].disc);
+							$('#prodcap').text(data[index].prodcap);
+							$('#color').text(data[index].color);
+							$('#weight').text(data[index].weight);
+							$('#connection').text(data[index].connection);
+							$('#power').text(data[index].power);
+							$('#speed').text(data[index].speed);
+							$('#Guarantee').text(data[index].Guarantee);
+						}
+					}
+				}
+		
+				);
+				
+				// function clickCounter() {
+	 
+				// 		if (localStorage.clickcount) {
+				// 		localStorage.clickcount = Number(localStorage.clickcount)+1;
+						
+				// 		document.getElementById("count").innerHTML =  localStorage.clickcount;
+					
+				// 	}
+				// 	}
+				// function reset(){
+				// 	a=0;
+				// 	document.getElementById("count").innerHTML =  a;
+				// }	
+				
+			</script>
 	</body>
 </html>
