@@ -1,6 +1,6 @@
 [{
     "name": "Oil Expeller", 
-    "imageout":"images/expeller.jpeg",
+    "imageout":"images/expeller-removebg-preview.png",
     
     "common":"expeller",
     "disc":"These Oil Expellers are specially designed to obtain the highest possible level of oil from the seeds. Its Chamber is Fitted with the worms which is made of most durable material. Whole body is made of pure Iron included the Bearings, Gears and Axcel Shaft.",
@@ -24,7 +24,7 @@
 },
 {
     "name":"Wheat Grinder/Atta Chakki (50 number)", 
-    "imageout":"images/Chakki-New.jpeg",
+    "imageout":"images/Chakki-New-removebg-preview.png",
     "imagein":"images/chakki50.jpeg",
     "price":"Rs.75,000",
 
@@ -45,8 +45,8 @@
 },
 {
     "name": "Wheat Grinder/Atta Chakki (23/45)", 
-    "imageout":"images/chakki23.jpeg",
-    "imagein":"images/chakki23.jpeg",
+    "imageout":"images/chakki23-removebg-preview(1).png",
+    "imagein":"images/chakki23-removebg-preview(1).png",
     
     "price":"Rs.35,000",
     "commonname":"chakki23",
@@ -63,7 +63,7 @@
 },
 {
     "name":"Wheat Grader(Chan'na)",
-    "imageout":"images/Channa 1.jpeg",
+    "imageout":"images/channa-removebg-preview-removebg-preview.png",
     "imagein":"images/Channa 2.jpeg",
     
     "price":"Rs.50,000",
@@ -79,7 +79,7 @@
 },
 {
     "name":"Livestock Feed Pellet (Wanda) Machine",
-    "imageout":"images/Wanda.jpeg",
+    "imageout":"images/Wanda-removebg-preview.png",
         
     "price":"Rs.250,000",
     "common":"wanda",
